@@ -29,7 +29,7 @@
         margin-top: 15px;
         color: #000;
 
-        h3{
+        h3 {
             margin-top: 15px;
             margin-bottom: 5px;
         }
@@ -39,5 +39,28 @@
         margin-top: 15px;
         display: flex;
         justify-content: space-between;
+    }
+
+    .options {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .edit{
+            &:hover{
+                background-color: #d5d5d5;
+                border-color: #eaeaea;
+            }
+        }
+
+        .delete{
+            &:hover{
+                background-color: #ec6e6e;
+                border-color: #e25656;
+            }
+        }
     }
 }

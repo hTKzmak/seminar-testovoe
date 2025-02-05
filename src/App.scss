@@ -4,10 +4,10 @@ $main-color: #f7f7f7;
 $font-color: #222222;
 
 @keyframes opacityPlay {
-    from{
+    from {
         opacity: 0.4;
     }
-    to{
+    to {
         opacity: 1;
     }
 }
@@ -28,10 +28,25 @@ body {
         padding-left: 60px;
         padding-right: 60px;
 
-        
         @media screen and (max-width: 1000px) {
             padding-left: 20px;
             padding-right: 20px;
+        }
+    }
+
+    button,
+    input[type="submit"] {
+        background-color: #FFF;
+        border: 2px solid #f1f1f1;
+        padding: 10px 15px;
+        border-radius: 8px;
+
+        transition: 0.3s;
+
+        cursor: pointer;
+        
+        svg {
+            font-size: 15px;
         }
     }
 }
