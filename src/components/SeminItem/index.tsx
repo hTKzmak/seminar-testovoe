@@ -5,7 +5,7 @@ import { Context } from '../../context/Context';
 
 export default function SeminItem({ id, title, description, date, time, photo }) {
 
-    const { DeleteSemin, showEditWind, setShowEditWind } = useContext(Context);
+    const { DeleteSemin, showEditWind, setShowEditWind, setSelectedSemin } = useContext(Context);
 
     function EditSemin() {
         let seminData = {
@@ -17,8 +17,7 @@ export default function SeminItem({ id, title, description, date, time, photo })
             photo: photo
         }
 
-        window.localStorage.setItem('choosenSemin', JSON.stringify(seminData))
-
+        setSelectedSemin(seminData)
         setShowEditWind(!showEditWind)
     }
 
