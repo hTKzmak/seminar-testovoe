@@ -16,7 +16,7 @@ function App() {
   const [showEditWind, setShowEditWind] = useState(false)
 
   // отображение экрана загрузки
-  const [visibility, setVisibility] = useState('flex')
+  const [visibility, setVisibility] = useState(true)
 
   // выбранный семинар для редактирования
   const [selectedSemin, setSelectedSemin] = useState({})
@@ -29,9 +29,11 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setSemin(data)
-        console.log(semin)
+        setVisibility(false)
       })
   }, [])
+
+  // ВЗАИМОДЕЙСТВИЕ С ДАННЫМИ ИЗ SEMIN:
 
   // удаление семинара, обновив данные в semin и не трогая seminars.json
   function DeleteSemin(id) {
@@ -51,6 +53,9 @@ function App() {
       seminItem.time = selectedSemin.time;
     }
   }
+
+
+  // ЗАПРОСЫ НА САМ JSON-SERVER:
 
   // удаление семинара, обновив данные в seminars.json
   // function DeleteSemin(id) {
@@ -87,7 +92,7 @@ function App() {
   //       }))
   //     })
   // }
-  
+
 
   return (
     <Context.Provider value={{ DeleteSemin, showEditWind, setShowEditWind, selectedSemin, setSelectedSemin, UpdateSemin }}>
@@ -95,9 +100,13 @@ function App() {
         <HeaderComp />
         <main>
           <div className="container">
-            {/* <Loading visibility={visibility} /> */}
+            {visibility ? (
+              <Loading visibility={visibility} />
+            ) : (
+              <SeminList semin={semin} />
+            )}
+
             <EditWindow visibility={showEditWind} />
-            <SeminList semin={semin} />
           </div>
         </main>
       </div>

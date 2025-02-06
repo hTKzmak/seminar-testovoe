@@ -3,7 +3,7 @@ import style from './EditWindow.module.scss'
 import { Context } from '../../context/Context';
 
 export default function EditWindow({ visibility }) {
-    const { showEditWind, setShowEditWind, selectedSemin, setSelectedSemin, UpdateSemin } = useContext(Context);
+    const { setShowEditWind, selectedSemin, setSelectedSemin, UpdateSemin } = useContext(Context);
 
     const [values, setValues] = useState({
         title: '',
